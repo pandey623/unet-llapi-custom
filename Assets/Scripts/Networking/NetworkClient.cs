@@ -3,7 +3,7 @@ using UnityEngine.Networking;
 
 namespace Networking
 {
-    public class SceneClient : MonoBehaviour
+    public class NetworkClient : MonoBehaviour
     {
         public string SceneServerIP = "127.0.0.1";
         public int SceneServerPort = 8888;
@@ -89,10 +89,13 @@ namespace Networking
             Debug.Log("SceneClient Disconnect returned " + ret + " error " + networkError);
         }
 
-        public void SendData()
+        public void SendTestData()
         {
-            int bufferSize = 1024;
-            byte[] buffer = new byte[bufferSize];
+            SendData(new byte[10], 10);
+        }
+        
+        public void SendData(byte[] buffer, int bufferSize)
+        {
             byte error;
             
             bool result = NetworkTransport.Send(_hostId, _connectionId, _reliableChannel, buffer, bufferSize, out error);
