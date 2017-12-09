@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using UnityEditor;
+using UnityEngine;
 
 namespace Editor.Builders
 {
@@ -34,7 +35,9 @@ namespace Editor.Builders
 			// build with all scenes that the zone server should be able to run
 			bpo.scenes = scenesForBuild.ToArray();
 
-			BuildPipeline.BuildPlayer(bpo);
+			string error = BuildPipeline.BuildPlayer(bpo);
+			if (!string.IsNullOrWhiteSpace(error))
+				Debug.Log(error);
 		}
 	}
 }
