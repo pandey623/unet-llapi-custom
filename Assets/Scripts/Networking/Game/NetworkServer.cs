@@ -12,6 +12,7 @@ namespace Networking
         public int MaxConnections = 10;
         public int MinSimulatedPing = 40;
         public int MaxSimulatedPing = 400;
+        public bool IsAuthoritative;
 
         private byte _unreliableChannel;
         private byte _reliableChannel;

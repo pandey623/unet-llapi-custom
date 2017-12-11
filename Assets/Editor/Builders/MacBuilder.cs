@@ -36,7 +36,7 @@ namespace Editor.Builders
 			bpo.scenes = scenesForBuild.ToArray();
 
 			string error = BuildPipeline.BuildPlayer(bpo);
-			if (!string.IsNullOrWhiteSpace(error))
+			if (!string.IsNullOrEmpty(error))
 				Debug.Log(error);
 		}
 	}
